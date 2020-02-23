@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor = "let metric of metrics">
+    <mat-checkbox (change)="changeMetricSelection(metric.name)" [(ngModel)]="metric.selected">{{metric.name}}</mat-checkbox>
+    <!-- <mat-checkbox [(ngModel)]="metric.selected">{{metric.name}}</mat-checkbox> -->
+
+  </li>
+</ul>

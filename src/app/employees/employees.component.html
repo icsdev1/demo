@@ -1,0 +1,29 @@
+<h1>sf</h1>
+
+
+<mat-form-field class="example-full-width">
+  <mat-label>Employee Name</mat-label>
+  <input matInput placeholder="John Doe" [(ngModel)]="emps[0].name">
+</mat-form-field>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tr  *ngFor="let emp of emps">
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="John Doe" [(ngModel)]="emp.name">
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="John Doe" [(ngModel)]="emp.email">
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+
+<button mat-fab color="primary">Add</button>

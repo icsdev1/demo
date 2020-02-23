@@ -1,0 +1,39 @@
+<mat-drawer-container >
+  <mat-drawer #sidenav mode="side" [(opened)]="state" position="end">
+    <app-ifm-metrics [ifm] = "ifm"></app-ifm-metrics>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <table>
+      <tr>
+        <th> Metrics >> </th>
+        <th *ngFor="let metric of ifm.metrics">{{metric}}</th>
+      </tr>
+      <tr  *ngFor="let attr of ifm.attributes; let i = index" [attr.data-index]="i">
+        <td>{{attr}}</td>
+        <td *ngFor="let metric of ifm.metrics; let j = index" [attr.data-index]="j">
+            <input [(ngModel)]="ifm.data[i][j]">
+        </td>
+      </tr>
+    </table>
+    <button mat-fab color="primary" (click)="sidenav.toggle()"> >></button>
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+<!-- <table>
+  <tr>
+    <th> </th>
+    <th *ngFor="let metric of ifm.metrics">{{metric}}</th>
+  </tr>
+  <tr  *ngFor="let attr of ifm.attributes; let i = index" [attr.data-index]="i">
+    <td>{{attr}}</td>
+    <td *ngFor="let metric of ifm.metrics; let j = index" [attr.data-index]="j">
+        <input [(ngModel)]="ifm.data[i][j]">
+    </td>
+
+  </tr>
+</table> -->
